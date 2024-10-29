@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using OneOf;
 using OneOf.Types;
 
@@ -18,12 +19,18 @@ public class Result<T> : OneOfBase<DomainError, Success<T>>
 	/// <summary>
 	/// True when the operation was a success
 	/// </summary>
+	[MemberNotNullWhen(true, nameof(Value))]
 	public bool IsSuccess => IsT1;
 
 	/// <summary>
 	/// True when the operation was an error
 	/// </summary>
+	[MemberNotNullWhen(true, nameof(DomainError))]
 	public bool IsFailure => IsT0;
+	
+	public DomainError? DomainError => IsT0 ? AsT0 : null; 
+	
+	public new T? Value => IsT1 ? AsT1.Value : default;
 	
 	public static implicit operator Result<T>(DomainError error) => new (error);
 	public static implicit operator Result<T>(T value) => new (new Success<T>(value));
