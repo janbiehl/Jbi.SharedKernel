@@ -15,6 +15,16 @@ public class Result<T> : OneOfBase<DomainError, Success<T>>
 		
 	}
 	
+	/// <summary>
+	/// True when the operation was a success
+	/// </summary>
+	public bool IsSuccess => IsT1;
+
+	/// <summary>
+	/// True when the operation was an error
+	/// </summary>
+	public bool IsFailure => IsT0;
+	
 	public static implicit operator Result<T>(DomainError error) => new (error);
 	public static implicit operator Result<T>(T value) => new (new Success<T>(value));
 
