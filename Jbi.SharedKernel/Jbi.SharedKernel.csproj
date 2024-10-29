@@ -9,8 +9,14 @@
         <Authors>Jan Biehl</Authors>
         <Description>Contains common classes for building applications. </Description>
         <RepositoryUrl>https://github.com/janbiehl/Jbi.SharedKernel</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    
     <ItemGroup>
       <PackageReference Include="OneOf" Version="3.0.271" />
     </ItemGroup>
