@@ -3,7 +3,7 @@ namespace Jbi.SharedKernel;
 /// <summary>
 /// Error codes that will be used by the domain error
 /// </summary>
-internal static class DomainErrorCodes
+public static class DomainErrorCodes
 {
 	/// <summary>
 	/// A unspecified common error

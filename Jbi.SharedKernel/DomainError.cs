@@ -5,7 +5,7 @@ namespace Jbi.SharedKernel;
 /// <summary>
 /// Defines an error that is expected to happen inside the domain
 /// </summary>
-internal record DomainError(int Code, string Message)
+public record DomainError(int Code, string Message)
 {
 	/// <summary>
 	/// Error code to indicate what kind of error happened

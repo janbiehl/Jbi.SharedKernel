@@ -7,7 +7,7 @@ namespace Jbi.SharedKernel;
 /// Generic result implementation using an oneof approach
 /// </summary>
 /// <typeparam name="T">Generic Success type</typeparam>
-internal class Result<T> : OneOfBase<DomainError, Success<T>>
+public class Result<T> : OneOfBase<DomainError, Success<T>>
 {
 	/// <inheritdoc />
 	protected Result(OneOf<DomainError, Success<T>> input) : base(input)
@@ -25,7 +25,7 @@ internal class Result<T> : OneOfBase<DomainError, Success<T>>
 /// <summary>
 /// Result implementation using an oneof approach
 /// </summary>
-internal sealed class Result : Result<Result>
+public sealed class Result : Result<Result>
 {
 	/// <inheritdoc />
 	private Result(OneOf<DomainError, Success<Result>> input) : base(input)
