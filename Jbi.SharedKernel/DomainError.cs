@@ -57,6 +57,15 @@ public record DomainError(int Code, string Message)
 		return new DomainError(DomainErrorCodes.InvalidErrorCode, builder.ToString());
 	}
 
+	/// <summary>
+	/// Create a domain error that indicates that a user is not authorized
+	/// </summary>
+	/// <returns>The new domain error</returns>
+	public static DomainError Unauthorized()
+	{
+		return new DomainError(DomainErrorCodes.UnauthorizedErrorCode, "Unauthorized");
+	}
+
 	/// <inheritdoc />
 	public override string ToString()
 	{
